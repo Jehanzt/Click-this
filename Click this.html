@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sa'yo</title>
+    <style>
+        body {
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 20%;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 3em;
+        }
+        p {
+            color: #333;
+            font-size: 1.5em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #ff3333;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mahal Pa Rin Kita</h1>
+        <p>Gusto ko lang ipaalam sa'yo na hanggang ngayon,</p>
+        <p>nananatili ka pa rin sa puso ko.</p>
+        <div class="buttons">
+            <button class="button" id="yesButton">Oo, mahal din kita</button>
+            <button class="button" id="noButton">Hindi, ayaw ko na</button>
+        </div>
+        <p id="responseYes" class="hidden">Sobrang saya ko na mahal mo pa rin ako! ❤️</p>
+        <p id="responseNo" class="hidden">Huwag ka nang magalit... Mahal pa rin kita. 😢</p>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const responseYes = document.getElementById('responseYes');
+        const responseNo = document.getElementById('responseNo');
+
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.floor(Math.random() * 300) + 50;
+            const y = Math.floor(Math.random() * 300) + 50;
+            noButton.style.position = 'absolute';
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        });
+
+        yesButton.addEventListener('click', () => {
+            responseYes.classList.remove('hidden');
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        });
+
+        noButton.addEventListener('click', () => {
+            responseNo.classList.remove('hidden');
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
